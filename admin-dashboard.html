@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GrowthSignal – Admin panel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-left"><span class="logo">GrowthSignal</span></div>
+      <div class="app-header-right">
+        <span id="header-role" class="badge badge-secondary"></span>
+        <span id="header-email" class="badge"></span>
+        <button id="logout-btn" class="btn btn-outline btn-sm">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="card page-card">
+        <h1 class="card-title">Admin panel</h1>
+        <p class="view-subtitle">Approve businesses, verify campaign outcomes, and distribute rewards from platform service fees.</p>
+
+        <div class="form-row">
+          <div class="form-group" style="flex:1;">
+            <label>Pending businesses</label>
+            <div id="admin-pending-businesses" class="list"></div>
+          </div>
+
+          <div class="form-group" style="flex:1;">
+            <label>Campaign tools</label>
+            <form id="admin-outcome-form" class="form">
+              <div class="form-group">
+                <label for="admin-campaign-id">Campaign ID</label>
+                <input id="admin-campaign-id" />
+              </div>
+              <div class="form-group">
+                <label for="admin-outcome-value">Outcome value</label>
+                <input id="admin-outcome-value" type="number" />
+              </div>
+              <button type="submit" class="btn btn-primary">Verify outcome</button>
+            </form>
+
+            <form id="admin-reward-form" class="form">
+              <div class="form-group">
+                <label for="admin-reward-direction">Direction to reward</label>
+                <select id="admin-reward-direction">
+                  <option value="positive">Positive</option>
+                  <option value="negative">Negative</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="admin-reward-campaign-id">Campaign ID</label>
+                <input id="admin-reward-campaign-id" />
+              </div>
+              <button type="submit" class="btn btn-primary">Distribute rewards</button>
+            </form>
+
+            <div id="admin-error" class="error-text"></div>
+            <div id="admin-success" class="success-text"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

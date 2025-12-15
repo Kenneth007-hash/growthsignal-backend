@@ -1,0 +1,354 @@
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --bg-card: #020617;
+  --border: #1f2937;
+  --accent: #2563eb;
+  --accent-soft: #1d4ed8;
+  --accent-muted: #93c5fd;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --radius: 8px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #1e293b 0, #020617 45%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  min-height: 100vh;
+}
+
+/* Layout */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 1.05rem;
+  background: linear-gradient(120deg, #60a5fa, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.app-header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px 16px 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Cards */
+
+.card {
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  border-radius: var(--radius);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Auth card */
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Tabs */
+
+.tabs {
+  display: inline-flex;
+  margin-bottom: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  border: 1px solid rgba(55, 65, 81, 0.8);
+}
+
+.tab {
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.tab-active {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+}
+
+/* Forms */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+input,
+textarea,
+select {
+  background: #020617;
+  border-radius: var(--radius);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  padding: 8px 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6);
+}
+
+/* Buttons */
+
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  border: 1px solid #1d4ed8;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
+.btn-secondary {
+  background: #020617;
+  color: var(--text-muted);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(75, 85, 99, 0.9);
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.btn-direction.btn-selected {
+  border-color: var(--accent);
+  color: var(--accent-muted);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+/* Text / pills / badges */
+
+.error-text {
+  font-size: 0.8rem;
+  color: var(--danger);
+}
+
+.success-text {
+  font-size: 0.8rem;
+  color: var(--success);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.badge-secondary {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(59, 130, 246, 0.8);
+  color: var(--accent-muted);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.divider {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 10px 0;
+}
+
+/* Dashboard layout */
+
+.page-card {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Lists */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.list-item {
+  border-radius: 10px;
+  border: 1px solid rgba(51, 65, 85, 0.9);
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+}
+
+.list-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-item-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.list-item-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Wallet badge */
+
+.wallet-badge {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  background: rgba(6, 78, 59, 0.12);
+  color: #a7f3d0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wallet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+/* Utils */
+
+.hidden {
+  display: none !important;
+}
+
+.button-group {
+  display: flex;
+  gap: 6px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .auth-card,
+  .page-card {
+    max-width: 100%;
+  }
+
+  .app-main {
+    padding: 16px 10px 24px;
+  }
+}

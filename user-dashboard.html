@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GrowthSignal – User dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-left"><span class="logo">GrowthSignal</span></div>
+      <div class="app-header-right">
+        <div class="wallet-badge">
+          <span class="wallet-dot"></span>
+          <span>Tokens: <span id="wallet-balance">...</span></span>
+        </div>
+        <span id="header-role" class="badge badge-secondary"></span>
+        <span id="header-email" class="badge"></span>
+        <button id="logout-btn" class="btn btn-outline btn-sm">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="card page-card">
+        <h1 class="card-title">User dashboard</h1>
+        <p class="view-subtitle">Browse active campaigns and stake your predictions using your platform tokens.</p>
+
+        <div class="form-row">
+          <div class="form-group" style="flex:2;">
+            <label>Active campaigns</label>
+            <div id="user-campaign-list" class="list"></div>
+          </div>
+
+          <div class="form-group" style="flex:1;">
+            <label>Stake prediction</label>
+            <form id="stake-form" class="form">
+              <div class="form-group">
+                <label for="stake-campaign-select">Campaign</label>
+                <select id="stake-campaign-select">
+                  <option value="">Select campaign</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="stake-direction">Direction</label>
+                <select id="stake-direction">
+                  <option value="positive">Positive</option>
+                  <option value="negative">Negative</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="stake-amount">Token amount</label>
+                <input id="stake-amount" type="number" min="1" value="10" />
+              </div>
+              <button type="submit" class="btn btn-primary">Stake</button>
+              <div id="stake-error" class="error-text"></div>
+              <div id="stake-success" class="success-text"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

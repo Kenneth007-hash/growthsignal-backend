@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GrowthSignal – Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Firebase v8 compat -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-header-left">
+        <span class="logo">GrowthSignal</span>
+      </div>
+      <div class="app-header-right">
+        <span id="header-role" class="badge badge-secondary"></span>
+        <span id="header-email" class="badge"></span>
+        <button id="logout-btn" class="btn btn-outline btn-sm hidden">Logout</button>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="app-main">
+      <section class="card auth-card">
+
+        <h1 class="card-title">Sign in to GrowthSignal</h1>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button id="tab-signin" class="tab tab-active">Sign in</button>
+          <button id="tab-signup" class="tab">Sign up</button>
+        </div>
+
+        <!-- Auth Form -->
+        <form id="auth-form" class="form">
+          <div class="form-group">
+            <label for="auth-email">Email</label>
+            <input type="email" id="auth-email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="auth-password">Password</label>
+            <input type="password" id="auth-password" required />
+          </div>
+
+          <div class="form-group">
+            <label for="auth-role">Role</label>
+            <select id="auth-role">
+              <option value="user">User</option>
+              <option value="business">Business</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Continue</button>
+
+          <div id="auth-error" class="error-text"></div>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <!-- Google Sign-In -->
+        <button id="google-btn" class="btn btn-secondary" style="width:100%;">
+          Continue with Google
+        </button>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Shared JS -->
+  <script src="./app.js"></script>
+</body>
+</html>

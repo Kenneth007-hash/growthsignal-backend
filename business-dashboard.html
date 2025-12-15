@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GrowthSignal – Business dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-left"><span class="logo">GrowthSignal</span></div>
+      <div class="app-header-right">
+        <span id="header-role" class="badge badge-secondary"></span>
+        <span id="header-email" class="badge"></span>
+        <button id="logout-btn" class="btn btn-outline btn-sm">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="card page-card">
+        <h1 class="card-title">Business dashboard</h1>
+        <p class="view-subtitle">Create promotion campaigns and track predictions from GrowthSignal users.</p>
+
+        <div class="form-row">
+          <div class="form-group" style="flex:1;">
+            <label>Create campaign</label>
+            <form id="campaign-form" class="form">
+              <div class="form-group">
+                <label for="campaign-title">Title</label>
+                <input id="campaign-title" required />
+              </div>
+              <div class="form-group">
+                <label for="campaign-description">Description</label>
+                <textarea id="campaign-description"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="campaign-metric">Success metric</label>
+                  <select id="campaign-metric">
+                    <option value="visits">Visits</option>
+                    <option value="signups">Signups</option>
+                    <option value="sales">Sales</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="campaign-target">Target value</label>
+                  <input id="campaign-target" type="number" min="1" value="100" />
+                </div>
+                <div class="form-group">
+                  <label for="campaign-duration">Duration</label>
+                  <select id="campaign-duration">
+                    <option value="30">30 days</option>
+                    <option value="60">60 days</option>
+                    <option value="90">90 days</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Create campaign</button>
+              <div id="campaign-error" class="error-text"></div>
+              <div id="campaign-success" class="success-text"></div>
+            </form>
+          </div>
+
+          <div class="form-group" style="flex:1;">
+            <label>Your campaigns</label>
+            <div id="business-campaign-list" class="list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

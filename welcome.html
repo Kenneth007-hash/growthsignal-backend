@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GrowthSignal – Welcome</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-left"><span class="logo">GrowthSignal</span></div>
+      <div class="app-header-right">
+        <span id="header-role" class="badge badge-secondary"></span>
+        <span id="header-email" class="badge"></span>
+        <button id="logout-btn" class="btn btn-outline btn-sm hidden">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="card page-card">
+        <!-- Business onboarding -->
+        <div id="welcome-business-section" class="hidden">
+          <h1 class="card-title">Set up your business profile</h1>
+          <p class="view-subtitle">Complete these details so GrowthSignal users can understand your promotion campaigns.</p>
+
+          <form id="business-onboarding-form" class="form">
+            <div class="form-group">
+              <label for="business-name">Business name *</label>
+              <input id="business-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="business-description">Business description *</label>
+              <textarea id="business-description" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="business-category">Business category *</label>
+              <select id="business-category">
+                <option value="">Select a category</option>
+                <option value="food">Food & Hospitality</option>
+                <option value="retail">Retail & Commerce</option>
+                <option value="tech">Technology & Software</option>
+                <option value="services">Professional Services</option>
+                <option value="education">Education</option>
+                <option value="health">Health & Wellness</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-website">Website (optional)</label>
+                <input id="business-website" type="url" />
+              </div>
+              <div class="form-group">
+                <label for="business-phone">Phone (optional)</label>
+                <input id="business-phone" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="business-address">Address (optional)</label>
+                <input id="business-address" />
+              </div>
+              <div class="form-group">
+                <label for="business-location">Location (city/country, optional)</label>
+                <input id="business-location" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="business-registration">Registration number (optional)</label>
+              <input id="business-registration" />
+            </div>
+
+            <div class="form-group">
+              <label>Business logo (optional)</label>
+              <input id="business-logo-file" type="file" accept="image/*" />
+              <small class="list-item-sub">Logo upload is optional; file upload will be handled by backend or storage later.</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save and continue</button>
+            <div id="welcome-error" class="error-text"></div>
+            <div id="welcome-success" class="success-text"></div>
+          </form>
+        </div>
+
+        <!-- Generic welcome -->
+        <div id="welcome-generic-section" class="hidden">
+          <h1 class="card-title">Welcome to GrowthSignal</h1>
+          <p class="view-subtitle">Your account is ready. You can now explore campaigns and engage with the community.</p>
+          <button id="welcome-generic-button" class="btn btn-primary">Go to dashboard</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
